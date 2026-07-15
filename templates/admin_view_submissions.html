@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .glass-box {
+        background: rgba(255, 255, 255, 0.55);
+        padding: 25px;
+        border-radius: 18px;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        margin-top: 20px;
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+        font-weight: 800;
+        font-size: 28px;
+        color: #4b4acb;
+        text-shadow: 0 1px 3px rgba(255,255,255,0.7);
+    }
+
+    .table thead {
+        background: #e6e3ff;
+        color: #3a3a8f;
+        font-weight: 700;
+    }
+
+    .table tbody tr {
+        background: rgba(255,255,255,0.6);
+        transition: 0.25s;
+    }
+
+    .table tbody tr:hover {
+        background: rgba(210, 200, 255, 0.5);
+        transform: scale(1.01);
+    }
+
+    .btn-download {
+        background: #8f7cf7;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        box-shadow: 0 4px 10px rgba(140,100,255,0.35);
+        transition: 0.2s;
+    }
+
+    .btn-download:hover {
+        background: #6e5de3;
+        transform: translateY(-2px);
+    }
+
+    .no-sub {
+        font-style: italic;
+        color: #555;
+        padding: 12px;
+    }
+</style>
+
+<h2>📄 Assignment Submissions</h2>
+
+<div class="glass-box">
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>USN</th>
+                <th>File</th>
+                <th>Submitted On</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if submissions %}
+                {% for s in submissions %}
+                <tr>
+                    <td>{{ s.student_usn }}</td>
+                    <td>{{ s.file }}</td>
+                    <td>{{ s.time }}</td>
+                    <td>
+                        <a href="/uploads/student_submissions/{{ assignment.id }}/{{ s.file }}"
+                           class="btn-download" download>
+                           Download
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="4" class="no-sub">No submissions yet.</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

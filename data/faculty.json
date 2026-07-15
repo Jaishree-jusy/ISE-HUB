@@ -1,0 +1,52 @@
+[
+  {
+    "username": "bhavya",
+    "password": "bhavya123",
+    "name": "Bhavya K S",
+    "subjects": ["sepm"],
+    "sections": ["A"]
+  },
+  {
+    "username": "raghu",
+    "password": "raghu123",
+    "name": "Raghu",
+    "subjects": ["cn"],
+    "sections": ["A","B"]
+  },
+  {
+    "username": "chaithra",
+    "password": "chaithra123",
+    "name": "Chaithra A S",
+    "subjects": ["toc"],
+    "sections": ["C"]
+  },
+  {
+    "username": "salma",
+    "password": "salma123",
+    "name": "Dr. Salma",
+    "subjects": ["ai"],
+    "sections": ["A","C"]
+  },
+  {
+    "username": "ancy",
+    "password": "ancy123",
+    "name": "Ancy Y Das",
+    "subjects": ["rmipr"],
+    "sections": ["B"]
+  },
+  {
+    "username": "shiv",
+    "password": "shiv123",
+    "name": "Dr. S. Shivakumar",
+    "subjects": ["evs"],
+    "sections": ["A","B","C"]
+  },
+  {
+  "username": "kiran",
+    "password": "kiran123",
+    "name": "Kiran Kumar D",
+    "subjects": ["Mini Project"],
+    "sections": ["A"]
+}
+
+]

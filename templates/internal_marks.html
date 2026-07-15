@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root{
+        --card: rgba(255,255,255,0.8);
+        --muted:#6b6c86;
+        --accent:#b19cd9;
+        --shadow:0 10px 28px rgba(0,0,0,0.07);
+    }
+
+    h2{
+        font-weight:800;
+        color:#5c5c8a;
+        margin-bottom:18px;
+    }
+
+    .marks-box{
+        background:var(--card);
+        padding:22px;
+        border-radius:18px;
+        box-shadow:var(--shadow);
+        backdrop-filter:blur(10px);
+        margin-bottom:20px;
+    }
+
+    .subject-row{
+        display:flex;
+        justify-content:space-between;
+        padding:12px 0;
+        border-bottom:1px solid rgba(0,0,0,0.08);
+        font-size:16px;
+        color:#444;
+    }
+
+    .subject-row:last-child{
+        border-bottom:none;
+    }
+
+    .subject{
+        font-weight:600;
+        color:#5c5c8a;
+    }
+
+    .marks{
+        background:#b19cd9;
+        padding:6px 16px;
+        border-radius:14px;
+        color:white;
+        font-weight:600;
+    }
+
+    .no-data{
+        color:#888;
+        font-style:italic;
+        text-align:center;
+        padding:20px;
+    }
+</style>
+
+<h2>Internal Marks</h2>
+
+<div class="marks-box">
+
+    {% if internal_marks %}
+        
+        <div class="subject-row">
+            <span class="subject">SEPM</span>
+            <span class="marks">{{ internal_marks.get('sepm', '-') }}</span>
+        </div>
+
+        <div class="subject-row">
+            <span class="subject">CN</span>
+            <span class="marks">{{ internal_marks.get('cn', '-') }}</span>
+        </div>
+
+        <div class="subject-row">
+            <span class="subject">TOC</span>
+            <span class="marks">{{ internal_marks.get('toc', '-') }}</span>
+        </div>
+
+        <div class="subject-row">
+            <span class="subject">AI</span>
+            <span class="marks">{{ internal_marks.get('ai', '-') }}</span>
+        </div>
+
+        <div class="subject-row">
+            <span class="subject">EVS</span>
+            <span class="marks">{{ internal_marks.get('evs', '-') }}</span>
+        </div>
+
+        <div class="subject-row">
+            <span class="subject">RM/IPR</span>
+            <span class="marks">{{ internal_marks.get('rmipr', '-') }}</span>
+        </div>
+
+    {% else %}
+        <p class="no-data">No internal marks uploaded yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

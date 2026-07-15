@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root {
+        --accent:#b19cd9;
+        --accent2:#8f6ad6;
+        --text:#5c5c8a;
+    }
+
+    body {
+        background: linear-gradient(135deg, #f3e8ff, #e8f3ff, #ffe8f5);
+        background-size: 300% 300%;
+        animation: bgMove 10s infinite ease-in-out;
+    }
+
+    @keyframes bgMove {
+        0% { background-position:0% 50%; }
+        50% { background-position:100% 50%; }
+        100% { background-position:0% 50%; }
+    }
+
+    .login-card {
+        width: 420px;
+        margin: 80px auto;
+        padding: 32px;
+        background: rgba(255,255,255,0.25);
+        border-radius: 22px;
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255,255,255,0.4);
+        box-shadow: 0 12px 35px rgba(120, 90, 200, 0.25);
+        animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+        from {opacity:0; transform: translateY(40px);}
+        to {opacity:1; transform: translateY(0);}
+    }
+
+    .title {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--text);
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .input-box input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border-radius: 14px;
+        border: 1px solid rgba(0,0,0,0.1);
+        background: rgba(255,255,255,0.7);
+        transition: 0.2s;
+    }
+
+    .input-box input:focus {
+        background: white;
+        transform: scale(1.03);
+        border-color: var(--accent);
+        box-shadow: 0 0 12px rgba(150,120,220,0.4);
+    }
+
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        color: white;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        border-radius: 14px;
+        box-shadow: 0 10px 25px rgba(130,90,210,0.3);
+        transition: 0.2s;
+    }
+
+    .login-btn:hover {
+        transform: scale(1.05);
+    }
+
+</style>
+
+<div class="login-card">
+    <div class="title">Faculty Login</div>
+
+    {% if error %}
+    <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+        <div class="input-box">
+            <input name="username" placeholder="Faculty Username" required>
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <button class="login-btn">Login</button>
+    </form>
+</div>
+
+{% endblock %}

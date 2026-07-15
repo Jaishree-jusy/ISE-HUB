@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .note-card{
+    background:rgba(255,255,255,0.85);
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+    margin-bottom:15px;
+  }
+  .note-time{ font-size:13px; color:#777; }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Notifications</h2>
+
+{% if notifications %}
+  {% for n in notifications %}
+    <div class="note-card">
+      <div><strong>{{ n.message }}</strong></div>
+      <div class="note-time">{{ n.time }}</div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p>No notifications posted yet.</p>
+{% endif %}
+
+{% endblock %}

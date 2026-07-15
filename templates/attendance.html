@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  :root{
+    --bg-grad: linear-gradient(180deg,#f7fbff,#f2f7ff);
+    --card: rgba(255,255,255,0.82);
+    --muted: #6b6c86;
+    --accent-1: #b19cd9; /* pastel purple */
+    --accent-2: #7fd3c7; /* pastel teal */
+    --accent-3: #ffd19a; /* pastel peach */
+    --glass-shadow: 0 10px 30px rgba(30,40,80,0.06);
+  }
+
+  .page-wrap{
+    background: var(--bg-grad);
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .top-row{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .welcome {
+    min-width: 220px;
+  }
+  .welcome h2{
+    margin:0;
+    color:var(--muted);
+    font-size:20px;
+    font-weight:800;
+  }
+  .welcome p{
+    margin:4px 0 0;
+    color:#8a8aa8;
+    font-size:13px;
+  }
+
+  .card {
+    background:var(--card);
+    border-radius:16px;
+    padding:18px;
+    box-shadow:var(--glass-shadow);
+    display:flex;
+    gap:18px;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+  }
+
+  .chart-box{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  /* keep the chart small */
+  canvas#attendanceChart{
+    width: 160px !important;
+    height: 160px !important;
+    display:block;
+  }
+
+  .percent-badge{
+    min-width:120px;
+    text-align:center;
+    padding:8px 12px;
+    border-radius:12px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.45));
+    box-shadow: inset 0 -6px 12px rgba(255,255,255,0.6);
+  }
+  .percent-badge h3{
+    margin:0;
+    color:var(--muted);
+    font-size:20px;
+    font-weight:800;
+  }
+  .percent-badge p{
+    margin:6px 0 0;
+    color:#7b7b8f;
+    font-size:13px;
+  }
+
+  .legend{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:13px;
+    color:#6f6f89;
+  }
+  .legend .row{ display:flex; gap:8px; align-items:center; }
+  .dot{ width:12px; height:12px; border-radius:4px; display:inline-block; }
+
+  /* responsive */
+  @media (max-width:720px){
+    .card{ flex-direction:column; align-items:center; text-align:center; }
+    .chart-box{ flex-direction:column; }
+  }
+</style>
+
+<div class="page-wrap">
+  <div class="top-row">
+    <div class="welcome">
+      <h2>Attendance</h2>
+      <p>Overview of your overall attendance percentage</p>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+      <a class="accent-btn" href="{{ url_for('student_dashboard') }}">Back to Dashboard</a>
+      <a class="accent-btn" href="{{ url_for('logout') }}" style="background:#ff8a8a;">Logout</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="chart-box">
+      <canvas id="attendanceChart" aria-label="Attendance chart" role="img"></canvas>
+
+      <div class="percent-badge" aria-hidden="false">
+        {# compute percent robustly #}
+        {% if attendance is mapping %}
+          {% if 'percentage' in attendance %}
+            {% set percent = attendance['percentage'] | round(0, 'common') %}
+          {% elif attendance|length > 0 %}
+            {% set percent = (attendance.values()|sum / (attendance|length)) | round(0, 'common') %}
+          {% else %}
+            {% set percent = 0 %}
+          {% endif %}
+        {% else %}
+          {% set percent = attendance | default(0) | round(0, 'common') %}
+        {% endif %}
+
+        <h3>{{ percent }}%</h3>
+        <p>Overall attendance</p>
+      </div>
+    </div>
+
+    <div style="min-width:220px;">
+      <div class="legend" aria-hidden="true">
+        <div class="row"><span class="dot" style="background: linear-gradient(90deg, var(--accent-1), #9571d6);"></span> Present ({{ percent }}%)</div>
+        <div class="row"><span class="dot" style="background: linear-gradient(90deg, var(--accent-2), #5fcfc0);"></span> Absent ({{ (100 - percent)|round(0,'common') }}%)</div>
+        <div style="margin-top:12px; color:#7b7b8f; font-size:13px;">
+          <strong>Note:</strong> This shows your overall attendance percentage. To see subject-wise breakdown open <a href="{{ url_for('student_dashboard') }}">Dashboard</a>.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+  // percent is available from the template
+  const percent = {{ percent|int }};
+  const absent = Math.max(0, 100 - percent);
+
+  const ctx = document.getElementById('attendanceChart').getContext('2d');
+
+  // make a small doughnut with soft pastel gradients
+  const gradient1 = ctx.createLinearGradient(0,0,160,0);
+  gradient1.addColorStop(0, '#b19cd9');
+  gradient1.addColorStop(1, '#9571d6');
+
+  const gradient2 = ctx.createLinearGradient(0,0,160,0);
+  gradient2.addColorStop(0, '#7fd3c7');
+  gradient2.addColorStop(1, '#53c1b3');
+
+  const data = {
+    labels: ['Present','Absent'],
+    datasets: [{
+      data: [percent, absent],
+      backgroundColor: [gradient1, gradient2],
+      hoverOffset: 6,
+      borderWidth: 0
+    }]
+  };
+
+  const chart = new Chart(ctx, {
+    type: 'doughnut',
+    data,
+    options: {
+      maintainAspectRatio: false,
+      cutout: '72%',
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context){
+              return context.label + ': ' + context.parsed + '%';
+            }
+          }
+        },
+        legend: { display: false }
+      }
+    }
+  });
+</script>
+
+{% endblock %}

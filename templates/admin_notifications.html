@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="color:#4b34c9;">Notifications</h2>
+
+<div class="tile mt-3">
+    <form method="POST">
+        <label class="form-label">Message</label>
+        <textarea name="message" class="form-control mb-3" required></textarea>
+        <button class="accent-btn">Post</button>
+    </form>
+</div>
+
+<div class="tile mt-4">
+    <h4 style="color:#4b34c9;">Recent Notifications</h4>
+
+    {% if notifications %}
+    <ul class="list-group mt-3">
+        {% for n in notifications %}
+        <li class="list-group-item glass-row">
+            <strong>{{ n.message }}</strong>
+            <div class="small-muted">{{ n.time }}</div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p class="small-muted">No notifications yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

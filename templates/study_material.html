@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root{
+        --card-bg: rgba(255,255,255,0.85);
+        --accent:#b19cd9;
+        --muted:#6b6c86;
+        --shadow:0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    h2{
+        font-weight:800;
+        color:#5c5c8a;
+        margin-bottom:20px;
+    }
+
+    .grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+        gap:22px;
+    }
+
+    .subject-card{
+        background:var(--card-bg);
+        padding:22px;
+        border-radius:18px;
+        text-align:center;
+        backdrop-filter:blur(8px);
+        box-shadow:var(--shadow);
+        transition:0.3s;
+    }
+
+    .subject-card:hover{
+        transform:translateY(-6px);
+        box-shadow:0 14px 34px rgba(0,0,0,0.08);
+    }
+
+    .subject-card img{
+        width:70px;
+        margin-bottom:12px;
+    }
+
+    .subject-title{
+        font-size:18px;
+        font-weight:700;
+        color:var(--muted);
+        margin-bottom:10px;
+    }
+
+    .file-box{
+        background:rgba(255,255,255,0.9);
+        padding:10px 14px;
+        border-radius:12px;
+        margin-top:8px;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        font-size:14px;
+        border:1px solid rgba(0,0,0,0.06);
+    }
+
+    .file-box a{
+        color:var(--accent);
+        font-weight:600;
+        text-decoration:none;
+    }
+    .file-box a:hover{
+        text-decoration:underline;
+    }
+</style>
+
+<h2>📚 Study Materials</h2>
+
+<div class="grid">
+
+    {% for sub_id, sub in subjects.items() %}
+    <div class="subject-card">
+        <img src="https://img.icons8.com/color/96/books.png">
+        <div class="subject-title">{{ sub.title }}</div>
+
+        {% set files = notes | selectattr("subject", "equalto", sub_id) | list %}
+
+        {% if files %}
+            {% for f in files %}
+            <div class="file-box">
+                <span>{{ f.title }}</span>
+                <a href="/files/notes/{{ f.file }}" target="_blank">Open</a>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p style="color:#999; font-size:13px;">No notes uploaded</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

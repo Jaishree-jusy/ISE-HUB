@@ -1,0 +1,189 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    /* Pastel-green themed faculty dashboard - ONLY UI changes */
+    :root{
+      --bg: #f6fff8;
+      --card: rgba(255,255,255,0.9);
+      --muted: #4a5a4a;
+      --accent-1: #c7f0db;   /* light pastel green */
+      --accent-2: #8fd7a6;   /* medium pastel green */
+      --accent-3: #5fb87e;   /* deeper green for buttons */
+      --glass: rgba(255,255,255,0.55);
+      --shadow: 0 12px 32px rgba(30,80,50,0.06);
+    }
+
+    body {
+      background: linear-gradient(180deg, #fbfff9 0%, var(--bg) 100%);
+    }
+
+    .page-title {
+        font-size:28px;
+        font-weight:800;
+        color:#1e4632; /* dark green */
+        margin-bottom:8px;
+    }
+
+    .faculty-box {
+        background:var(--card);
+        border-radius:18px;
+        padding:22px;
+        margin-top:14px;
+        backdrop-filter: blur(8px);
+        box-shadow:var(--shadow);
+        border: 1px solid rgba(110,170,135,0.06);
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:18px;
+    }
+
+    .faculty-meta {
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+
+    .avatar-circle{
+      width:84px;
+      height:84px;
+      border-radius:16px;
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      color:#0f3523;
+      font-size:22px;
+      box-shadow: 0 8px 22px rgba(40,90,50,0.08);
+    }
+
+    .meta-text { color:var(--muted); font-size:14px; }
+    .meta-text strong{ color:#143a2a; font-weight:800; }
+
+    .grid {
+        margin-top:22px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+        gap:22px;
+    }
+
+    .tile {
+        background:var(--card);
+        padding:18px;
+        border-radius:16px;
+        text-align:center;
+        box-shadow:var(--shadow);
+        transition: transform .18s ease, box-shadow .18s ease;
+        display:flex;
+        flex-direction:column;
+        gap:10px;
+        min-height:150px;
+        position:relative;
+        overflow:hidden;
+        border:1px solid rgba(80,150,110,0.04);
+    }
+
+    .tile:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(30,80,50,0.08);
+    }
+
+    .tile h3 {
+        margin:0;
+        color:#15422e;
+        font-size:18px;
+        font-weight:800;
+    }
+
+    .tile p {
+        margin:0;
+        color:var(--muted);
+        font-size:13px;
+        line-height:1.4;
+    }
+
+    .btn-open {
+        margin-top:auto;
+        display:inline-block;
+        text-decoration:none;
+        background: linear-gradient(90deg,var(--accent-2),var(--accent-3));
+        color:white;
+        padding:8px 16px;
+        border-radius:12px;
+        font-weight:800;
+        box-shadow: 0 10px 28px rgba(40,100,60,0.12);
+    }
+
+    .tile .img-wrap{
+      width:64px; height:64px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:0 auto;
+      background:linear-gradient(180deg, rgba(255,255,255,0.88), rgba(255,255,255,0.6));
+      border:1px solid rgba(80,150,110,0.04);
+      box-shadow: 0 8px 20px rgba(30,80,50,0.04);
+    }
+
+    /* smaller screens */
+    @media (max-width:760px){
+      .faculty-box { flex-direction:column; align-items:flex-start; gap:12px; }
+      .avatar-circle { width:64px; height:64px; font-size:18px; }
+    }
+</style>
+
+<h2 class="page-title">Welcome, {{ faculty.name }}</h2>
+
+<div class="faculty-box">
+    <div class="faculty-meta">
+        <div class="avatar-circle">{{ faculty.username[:2]|upper }}</div>
+        <div>
+            <p style="margin:0; font-weight:800; color:#143a2a;">{{ faculty.name or faculty.username }}</p>
+            <p class="meta-text"><strong>Subjects:</strong> {{ faculty.subjects }} &nbsp; • &nbsp; <strong>Sections:</strong> {{ faculty.sections }}</p>
+        </div>
+    </div>
+
+    <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn-open" href="/faculty/notes">Manage Notes</a>
+        <a class="btn-open" href="/logout" style="background:linear-gradient(90deg,#ffb3a6,#ff8f80);">Logout</a>
+    </div>
+</div>
+
+<div class="grid">
+
+    <div class="tile">
+        <div class="img-wrap">
+            <!-- students icon -->
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135810.png" alt="students" width="42" height="42">
+        </div>
+        <h3>Students</h3>
+        <p>View and edit students you handle.</p>
+        <a class="btn-open" href="/faculty/students">Open</a>
+    </div>
+
+    <div class="tile">
+        <div class="img-wrap">
+            <!-- notes icon -->
+            <img src="https://img.icons8.com/fluency/48/000000/open-book.png" alt="notes" width="38" height="38">
+        </div>
+        <h3>Manage Notes</h3>
+        <p>Upload and manage study materials .</p>
+        <a class="btn-open" href="/faculty/notes">Open</a>
+    </div>
+
+    <div class="tile">
+        <div class="img-wrap">
+            <!-- logout icon -->
+            <img src="https://img.icons8.com/fluency/48/000000/exit.png" alt="logout" width="34" height="34">
+        </div>
+        <h3>Logout</h3>
+        <p>Sign out securely from the faculty account.</p>
+        <a class="btn-open" href="/logout">Logout</a>
+    </div>
+
+</div>
+
+{% endblock %}

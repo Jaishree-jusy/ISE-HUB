@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root {
+        --accent:#b19cd9;
+        --accent2:#8f6ad6;
+        --neon:#d7c2ff;
+        --text:#5c5c8a;
+    }
+
+    /* BACKGROUND ANIMATION */
+    @keyframes bgMove {
+        0% { background-position:0% 50%; }
+        50% { background-position:100% 50%; }
+        100% { background-position:0% 50%; }
+    }
+
+    body {
+        background: linear-gradient(135deg, #f1e7ff, #e0f0ff, #ffe3f3);
+        background-size: 300% 300%;
+        animation: bgMove 12s infinite ease-in-out;
+        overflow:hidden;
+    }
+
+    /* FLOATING PARTICLES */
+    .particle {
+        position: absolute;
+        background: rgba(255,255,255,0.5);
+        border-radius: 50%;
+        animation: floatUp 12s linear infinite;
+        filter: blur(2px);
+    }
+    @keyframes floatUp {
+        from { transform: translateY(120vh); opacity:0; }
+        to { transform: translateY(-20vh); opacity:1; }
+    }
+
+    /* GLASS WRAPPER */
+    .login-card {
+        max-width: 430px;
+        margin: 60px auto;
+        padding: 35px 30px;
+        background: rgba(255,255,255,0.25);
+        border-radius: 22px;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255,255,255,0.4);
+        box-shadow:
+            0 10px 40px rgba(0,0,0,0.15),
+            inset 0 0 25px rgba(255,255,255,0.15);
+        animation: fadeUp 1s ease;
+        position:relative;
+        overflow:hidden;
+    }
+
+    /* SHIMMER EFFECT */
+    .login-card::after {
+        content:"";
+        position:absolute;
+        top:0; left:-150%;
+        width:100%; height:100%;
+        background:linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+        animation: shimmer 4s infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform:translateX(0); }
+        100% { transform:translateX(250%); }
+    }
+
+    /* FADE UP */
+    @keyframes fadeUp {
+        from { opacity:0; transform:translateY(40px); }
+        to { opacity:1; transform:translateY(0); }
+    }
+
+    /* TYPEWRITER TEXT */
+    .typewriter {
+        display: inline-block;
+        border-right: 3px solid #7e68d8;
+        animation: typing 2.5s steps(25), blink .8s infinite;
+        white-space: nowrap;
+        overflow: hidden;
+        font-weight:900;
+        font-size:26px;
+        color:var(--text);
+        width: 0;
+    }
+
+    @keyframes typing {
+        from { width: 0 }
+        to { width: 270px }
+    }
+
+    @keyframes blink {
+        0%,100% { border-color: transparent }
+        50% { border-color: #7e68d8 }
+    }
+
+    /* INPUT BOXES */
+    .input-box input {
+        width:100%;
+        padding:12px;
+        border-radius:14px;
+        border:1px solid rgba(0,0,0,0.08);
+        background:rgba(255,255,255,0.6);
+        font-size:15px;
+        margin-bottom:18px;
+        transition:0.25s;
+    }
+
+    /* GLOW ON FOCUS */
+    .input-box input:focus {
+        border-color:var(--accent);
+        background:white;
+        box-shadow:0px 0px 15px rgba(177,156,217,0.6);
+        transform:scale(1.03);
+    }
+
+    /* LOGIN BUTTON */
+    .login-btn {
+        width:100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        padding:12px;
+        border:none;
+        border-radius:16px;
+        color:white;
+        font-weight:800;
+        font-size:16px;
+        letter-spacing:0.5px;
+        box-shadow:0 6px 25px rgba(150,120,220,0.3);
+        transition:0.2s;
+        position:relative;
+        overflow:hidden;
+    }
+
+    /* BUTTON HOVER */
+    .login-btn:hover {
+        transform:scale(1.05);
+        box-shadow:0 12px 35px rgba(130,90,220,0.35);
+    }
+
+    /* RIPPLE EFFECT */
+    .login-btn:active::after {
+        content:"";
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:120%;
+        height:120%;
+        background:rgba(255,255,255,0.4);
+        border-radius:50%;
+        animation:ripple .4s ease-out;
+    }
+
+    @keyframes ripple {
+        from { transform:translate(-50%,-50%) scale(0.2); opacity:1; }
+        to { transform:translate(-50%,-50%) scale(1.8); opacity:0; }
+    }
+
+</style>
+
+<!-- FLOATING PARTICLES -->
+{% for i in range(20) %}
+<div class="particle" style="
+    left: {{ (i * 5) + (i*3)%90 }}%;
+    width: {{ 6 + (i%5)*3 }}px;
+    height: {{ 6 + (i%5)*3 }}px;
+    animation-duration: {{ 8 + (i%6)*2 }}s;
+"></div>
+{% endfor %}
+
+<div class="login-card">
+
+    <h2 class="typewriter">Welcome to ISEHub ✨</h2>
+
+    {% if error %}
+    <div class="alert alert-danger mt-3">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST" class="mt-4">
+
+        <div class="input-box">
+            <label class="form-label">Username</label>
+            <input name="username" required placeholder="USN / Email / Admin / Faculty">
+        </div>
+
+        <div class="input-box">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" required placeholder="Enter password">
+        </div>
+
+        <button class="login-btn" type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root{
+        --card: rgba(255,255,255,0.75);
+        --shadow: 0 4px 20px rgba(0,0,0,0.08);
+        --purple: #b19cd9;
+        --muted:#6b6c86;
+    }
+
+    .table-box{
+        background: var(--card);
+        padding: 25px;
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(8px);
+    }
+
+    h2{
+        font-weight:800;
+        color:#5c5c8a;
+    }
+
+    table{
+        width:100%;
+        border-collapse: collapse;
+        margin-top:15px;
+    }
+
+    th{
+        background:#b19cd9;
+        color:white;
+        padding:10px;
+        text-align:center;
+        border-radius:6px;
+    }
+
+    td{
+        padding:10px;
+        text-align:center;
+        color:#555;
+        background:white;
+        border-radius:6px;
+        margin:5px;
+    }
+
+    .sub{
+        font-weight:600;
+        color:#5c5c8a;
+    }
+
+</style>
+
+<h2>Your Subjects</h2>
+
+<div class="table-box">
+    <table>
+        <tr>
+            <th>Subject Code</th>
+            <th>Subject Title</th>
+            <th>Faculty</th>
+        </tr>
+
+        <tr>
+            <td>BCS501</td>
+            <td class="sub">Software Engineering & Project Management</td>
+            <td>Bhavya K S</td>
+        </tr>
+
+        <tr>
+            <td>BCS502</td>
+            <td class="sub">Computer Networks</td>
+            <td>Raghu M T, Malashree N</td>
+        </tr>
+
+        <tr>
+            <td>BCS503</td>
+            <td class="sub">Theory of Computation</td>
+            <td>Chaithra A S</td>
+        </tr>
+
+        <tr>
+            <td>BCS515B</td>
+            <td class="sub">Artificial Intelligence</td>
+            <td>Dr. Salma Jabeen</td>
+        </tr>
+
+        <tr>
+            <td>BCS508</td>
+            <td class="sub">Environmental Studies & E-waste Management</td>
+            <td>Dr. R Sivakumar</td>
+        </tr>
+
+        <tr>
+            <td>BRMKS57</td>
+            <td class="sub">Research Methodology & IPR</td>
+            <td>Ancy V Das</td>
+        </tr>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .box {
+        max-width:480px;
+        margin:auto;
+        background:rgba(255,255,255,0.85);
+        padding:25px;
+        border-radius:18px;
+        box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .save-btn {
+        background:#8f6ad6;
+        padding:10px 20px;
+        border-radius:12px;
+        color:white;
+        font-weight:700;
+        border:none;
+    }
+</style>
+
+<h2 style="color:#5c5c8a;font-weight:800;">Edit Marks — {{ student.name }}</h2>
+<p>USN: {{ student.usn }} • Subject: {{ subject }}</p>
+
+<div class="box mt-3">
+<form method="POST">
+    <label>Marks</label>
+    <input type="number" name="marks" class="form-control"
+           value="{{ student.internal_marks.get(subject, 0) }}" required>
+
+    <button class="save-btn mt-3" type="submit">Save</button>
+</form>
+</div>
+
+{% endblock %}

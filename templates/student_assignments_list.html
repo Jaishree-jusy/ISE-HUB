@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="color:#5c5c8a; font-weight:800;">Assignments</h2>
+
+{% if assignments %}
+  {% for a in assignments %}
+  <div class="card p-3 mb-3 shadow-sm" style="border-radius:12px;">
+    <h5>{{ a.title }}</h5>
+    <p style="margin:0;">Deadline: {{ a.deadline }}</p>
+    <p style="margin:0;">{{ a.description }}</p>
+
+    <a class="btn btn-primary mt-2"
+       href="/student/assignments/{{ a.id }}">
+       Open
+    </a>
+  </div>
+  {% endfor %}
+{% else %}
+  <p>No assignments uploaded.</p>
+{% endif %}
+
+{% endblock %}

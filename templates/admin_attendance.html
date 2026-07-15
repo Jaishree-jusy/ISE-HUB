@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .sections {
+    display:flex;
+    gap:16px;
+    margin-top:18px;
+    flex-wrap:wrap;
+  }
+  .sec-btn {
+    background: linear-gradient(90deg,#f6d365,#fda085);
+    padding:12px 22px;
+    border-radius:12px;
+    color:#222;
+    font-weight:700;
+    text-decoration:none;
+    box-shadow:0 6px 18px rgba(0,0,0,0.06);
+  }
+  .sec-btn:hover { transform:translateY(-3px); opacity:0.98; }
+  .hint { color:#6b6c86; margin-top:8px; }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Attendance</h2>
+<p class="hint">Select a section to view and update attendance.</p>
+
+<div class="sections">
+  <a class="sec-btn" href="{{ url_for('admin_attendance_section', section='A') }}">Section A</a>
+  <a class="sec-btn" href="{{ url_for('admin_attendance_section', section='B') }}">Section B</a>
+  <a class="sec-btn" href="{{ url_for('admin_attendance_section', section='C') }}">Section C</a>
+</div>
+
+{% endblock %}

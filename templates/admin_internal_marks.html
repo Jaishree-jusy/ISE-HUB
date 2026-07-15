@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .form-card { background:rgba(255,255,255,0.95); padding:18px; border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,0.05);}
+  .save-btn { background:#b19cd9; color:#fff; padding:8px 14px; border-radius:10px; text-decoration:none; border:none; }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Update Internal Marks — {{ student.name }}</h2>
+<p class="muted">USN: {{ student.usn }} • Section: {{ section }}</p>
+
+<div class="form-card" style="max-width:600px;">
+  <form method="POST">
+    {% set im = student.get('internal_marks', {}) %}
+    <!-- show the 6 subjects you asked for -->
+    <div class="mb-3">
+      <label class="form-label">SEPM</label>
+      <input name="sepm" class="form-control" value="{{ im.get('sepm','') }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">CN</label>
+      <input name="cn" class="form-control" value="{{ im.get('cn','') }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">TOC</label>
+      <input name="toc" class="form-control" value="{{ im.get('toc','') }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">AI</label>
+      <input name="ai" class="form-control" value="{{ im.get('ai','') }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">RMIPR</label>
+      <input name="rmipr" class="form-control" value="{{ im.get('rmipr','') }}">
+    </div>
+    <div class="mb-3">
+      <label class="form-label">EVS</label>
+      <input name="evs" class="form-control" value="{{ im.get('evs','') }}">
+    </div>
+
+    <button class="save-btn" type="submit">Save Marks</button>
+  </form>
+</div>
+
+{% endblock %}

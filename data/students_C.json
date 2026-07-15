@@ -1,0 +1,642 @@
+[
+  {
+    "name": "ABHISHEK C",
+    "usn": "1DB23IS002",
+    "email": "1DB23IS002@isehub.edu",
+    "phone": "9876543210",
+    "password": "1DB23IS002",
+    "attendance": 81,
+    "internal_marks": {
+      "sepm": 19,
+      "cn": 13,
+      "toc": 19,
+      "ai": 14,
+      "rmipr": 18,
+      "evs": 16
+    }
+  },
+  {
+    "name": "ABHISHEK D",
+    "usn": "1DB23IS003",
+    "email": "1DB23IS003@isehub.edu",
+    "phone": "9123456780",
+    "password": "1DB23IS003",
+    "attendance": 74,
+    "internal_marks": {
+      "sepm": 12,
+      "cn": 19,
+      "toc": 15,
+      "ai": 18,
+      "rmipr": 14,
+      "evs": 17
+    }
+  },
+  {
+    "name": "ABHISHEK S",
+    "usn": "1DB23IS004",
+    "email": "1DB23IS004@isehub.edu",
+    "phone": "9345127801",
+    "password": "1DB23IS004",
+    "attendance": 89,
+    "internal_marks": {
+      "sepm": 15,
+      "cn": 11,
+      "toc": 17,
+      "ai": 18,
+      "rmipr": 19,
+      "evs": 14
+    }
+  },
+  {
+    "name": "ADITHYA ADIVESH DIWANAD",
+    "usn": "1DB23IS005",
+    "email": "1DB23IS005@isehub.edu",
+    "phone": "9982341200",
+    "password": "1DB23IS005",
+    "attendance": 93,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 17,
+      "toc": 14,
+      "ai": 19,
+      "rmipr": 13,
+      "evs": 16
+    }
+  },
+  {
+    "name": "AJINNEYA J",
+    "usn": "1DB23IS035",
+    "email": "1DB23IS035@isehub.edu",
+    "phone": "9098435621",
+    "password": "1DB23IS035",
+    "attendance": 68,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 12,
+      "toc": 18,
+      "ai": 17,
+      "rmipr": 10,
+      "evs": 19
+    }
+  },
+  {
+    "name": "ANJANEYA SIDDAPPA HACHAPPANAVAR",
+    "usn": "1DB23IS051",
+    "email": "1DB23IS051@isehub.edu",
+    "phone": "9812354670",
+    "password": "1DB23IS051",
+    "attendance": 75,
+    "internal_marks": {
+      "sepm": 19,
+      "cn": 18,
+      "toc": 12,
+      "ai": 14,
+      "rmipr": 17,
+      "evs": 11
+    }
+  },
+  {
+    "name": "ANKIT KUMAR VISHAWKARMA",
+    "usn": "1DB23IS006",
+    "email": "1DB23IS006@isehub.edu",
+    "phone": "9087123456",
+    "password": "1DB23IS006",
+    "attendance": 91,
+    "internal_marks": {
+      "sepm": 15,
+      "cn": 14,
+      "toc": 18,
+      "ai": 20,
+      "rmipr": 17,
+      "evs": 16
+    }
+  },
+  {
+    "name": "BASAVARAJ V KUMARI",
+    "usn": "1DB23IS007",
+    "email": "1DB23IS007@isehub.edu",
+    "phone": "7894561230",
+    "password": "1DB23IS007",
+    "attendance": 70,
+    "internal_marks": {
+      "sepm": 10,
+      "cn": 19,
+      "toc": 11,
+      "ai": 16,
+      "rmipr": 15,
+      "evs": 18
+    }
+  },
+  {
+    "name": "CHANNABASAPPA SHIVUNAGODA LOTAGERI",
+    "usn": "1DB23IS034",
+    "email": "1DB23IS034@isehub.edu",
+    "phone": "9078563412",
+    "password": "1DB23IS034",
+    "attendance": 84,
+    "internal_marks": {
+      "sepm": 19,
+      "cn": 15,
+      "toc": 18,
+      "ai": 12,
+      "rmipr": 16,
+      "evs": 14
+    }
+  },
+  {
+    "name": "DEEKSHA M",
+    "usn": "1DB23IS052",
+    "email": "1DB23IS052@isehub.edu",
+    "phone": "7568493021",
+    "password": "1DB23IS052",
+    "attendance": 95,
+    "internal_marks": {
+      "sepm": 17,
+      "cn": 20,
+      "toc": 18,
+      "ai": 16,
+      "rmipr": 13,
+      "evs": 12
+    }
+  },
+  {
+    "name": "DHANUSH T C",
+    "usn": "1DB23IS053",
+    "email": "1DB23IS053@isehub.edu",
+    "phone": "9123467820",
+    "password": "1DB23IS053",
+    "attendance": 76,
+    "internal_marks": {
+      "sepm": 14,
+      "cn": 18,
+      "toc": 12,
+      "ai": 19,
+      "rmipr": 17,
+      "evs": 16
+    }
+  },
+  {
+    "name": "DHANVITH",
+    "usn": "1DB23IS008",
+    "email": "1DB23IS008@isehub.edu",
+    "phone": "9345678123",
+    "password": "1DB23IS008",
+    "attendance": 88,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 16,
+      "toc": 20,
+      "ai": 17,
+      "rmipr": 11,
+      "evs": 15
+    }
+  },
+  {
+    "name": "GOWTHAM B",
+    "usn": "1DB23IS009",
+    "email": "1DB23IS009@isehub.edu",
+    "phone": "9456123780",
+    "password": "1DB23IS009",
+    "attendance": 63,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 14,
+      "toc": 17,
+      "ai": 11,
+      "rmipr": 18,
+      "evs": 12
+    }
+  },
+  {
+    "name": "HARSHITH GOWDA B S",
+    "usn": "1DB23IS060",
+    "email": "1DB23IS060@isehub.edu",
+    "phone": "9876501234",
+    "password": "1DB23IS060",
+    "attendance": 79,
+    "internal_marks": {
+      "sepm": 11,
+      "cn": 17,
+      "toc": 13,
+      "ai": 18,
+      "rmipr": 12,
+      "evs": 19
+    }
+  },
+  {
+    "name": "HEMANTH G",
+    "usn": "1DB23IS010",
+    "email": "1DB23IS010@isehub.edu",
+    "phone": "9034512876",
+    "password": "1DB23IS010",
+    "attendance": 92,
+    "internal_marks": {
+      "sepm": 20,
+      "cn": 14,
+      "toc": 12,
+      "ai": 19,
+      "rmipr": 16,
+      "evs": 18
+    }
+  },
+  {
+    "name": "JEEVAN VEDAVENDRA",
+    "usn": "1DB23IS066",
+    "email": "1DB23IS066@isehub.edu",
+    "phone": "9987213405",
+    "password": "1DB23IS066",
+    "attendance": 74,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 19,
+      "toc": 17,
+      "ai": 18,
+      "rmipr": 14,
+      "evs": 15
+    }
+  },
+  {
+    "name": "JERIN JEBASTIN S",
+    "usn": "1DB23IS011",
+    "email": "1DB23IS011@isehub.edu",
+    "phone": "9345812067",
+    "password": "1DB23IS011",
+    "attendance": 87,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 16,
+      "toc": 15,
+      "ai": 17,
+      "rmipr": 11,
+      "evs": 19
+    }
+  },
+  {
+    "name": "K R KOTESH",
+    "usn": "1DB23IS012",
+    "email": "1DB23IS012@isehub.edu",
+    "phone": "9786543201",
+    "password": "1DB23IS012",
+    "attendance": 80,
+    "internal_marks": {
+      "sepm": 12,
+      "cn": 19,
+      "toc": 14,
+      "ai": 17,
+      "rmipr": 16,
+      "evs": 12
+    }
+  },
+  {
+    "name": "M FATHIMA SHELMEYA",
+    "usn": "1DB23IS008",
+    "email": "1DB23IS008@isehub.edu",
+    "phone": "9456723810",
+    "password": "1DB23IS008",
+    "attendance": 73,
+    "internal_marks": {
+      "sepm": 13,
+      "cn": 15,
+      "toc": 19,
+      "ai": 12,
+      "rmipr": 18,
+      "evs": 16
+    }
+  },
+  {
+    "name": "MEGHANA E B",
+    "usn": "1DB23IS009",
+    "email": "1DB23IS009@isehub.edu",
+    "phone": "9871204356",
+    "password": "1DB23IS009",
+    "attendance": 81,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 11,
+      "toc": 18,
+      "ai": 17,
+      "rmipr": 13,
+      "evs": 19
+    }
+  },
+  {
+    "name": "MEGHANA V",
+    "usn": "1DB23IS010",
+    "email": "1DB23IS010@isehub.edu",
+    "phone": "9345678012",
+    "password": "1DB23IS010",
+    "attendance": 69,
+    "internal_marks": {
+      "sepm": 11,
+      "cn": 18,
+      "toc": 14,
+      "ai": 12,
+      "rmipr": 20,
+      "evs": 13
+    }
+  },
+  {
+    "name": "MONIKA R",
+    "usn": "1DB23IS011",
+    "email": "1DB23IS011@isehub.edu",
+    "phone": "9867451209",
+    "password": "1DB23IS011",
+    "attendance": 83,
+    "internal_marks": {
+      "sepm": 15,
+      "cn": 17,
+      "toc": 12,
+      "ai": 19,
+      "rmipr": 10,
+      "evs": 18
+    }
+  },
+  {
+    "name": "MONIKA S",
+    "usn": "1DB23IS012",
+    "email": "1DB23IS012@isehub.edu",
+    "phone": "9983465721",
+    "password": "1DB23IS012",
+    "attendance": 91,
+    "internal_marks": {
+      "sepm": 13,
+      "cn": 18,
+      "toc": 16,
+      "ai": 11,
+      "rmipr": 17,
+      "evs": 15
+    }
+  },
+  {
+    "name": "MONISHA R",
+    "usn": "1DB23IS013",
+    "email": "1DB23IS013@isehub.edu",
+    "phone": "9876543098",
+    "password": "1DB23IS013",
+    "attendance": 77,
+    "internal_marks": {
+      "sepm": 10,
+      "cn": 20,
+      "toc": 14,
+      "ai": 15,
+      "rmipr": 18,
+      "evs": 12
+    }
+  },
+  {
+    "name": "MOUNISHA N",
+    "usn": "1DB23IS014",
+    "email": "1DB23IS014@isehub.edu",
+    "phone": "9123409876",
+    "password": "1DB23IS014",
+    "attendance": 85,
+    "internal_marks": {
+      "sepm": 19,
+      "cn": 11,
+      "toc": 17,
+      "ai": 16,
+      "rmipr": 13,
+      "evs": 14
+    }
+  },
+  {
+    "name": "NANDISH SAJJAN",
+    "usn": "1DB23IS015",
+    "email": "1DB23IS015@isehub.edu",
+    "phone": "9012345678",
+    "password": "1DB23IS015",
+    "attendance": 63,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 16,
+      "toc": 11,
+      "ai": 17,
+      "rmipr": 19,
+      "evs": 16
+    }
+  },
+  {
+    "name": "NARENDRA B",
+    "usn": "1DB23IS016",
+    "email": "1DB23IS016@isehub.edu",
+    "phone": "9876234510",
+    "password": "1DB23IS016",
+    "attendance": 88,
+    "internal_marks": {
+      "sepm": 17,
+      "cn": 15,
+      "toc": 14,
+      "ai": 19,
+      "rmipr": 11,
+      "evs": 18
+    }
+  },
+  {
+    "name": "NIKHIL GOWDA C R",
+    "usn": "1DB23IS017",
+    "email": "1DB23IS017@isehub.edu",
+    "phone": "9345167280",
+    "password": "1DB23IS017",
+    "attendance": 70,
+    "internal_marks": {
+      "sepm": 14,
+      "cn": 18,
+      "toc": 11,
+      "ai": 16,
+      "rmipr": 17,
+      "evs": 14
+    }
+  },
+  {
+    "name": "NIKHIL J G",
+    "usn": "1DB23IS018",
+    "email": "1DB23IS018@isehub.edu",
+    "phone": "9765412380",
+    "password": "1DB23IS018",
+    "attendance": 91,
+    "internal_marks": {
+      "sepm": 13,
+      "cn": 20,
+      "toc": 18,
+      "ai": 17,
+      "rmipr": 19,
+      "evs": 12
+    }
+  },
+  {
+    "name": "NISHANTH GOWDA K L",
+    "usn": "1DB23IS019",
+    "email": "1DB23IS019@isehub.edu",
+    "phone": "9874503216",
+    "password": "1DB23IS019",
+    "attendance": 63,
+    "internal_marks": {
+      "sepm": 15,
+      "cn": 11,
+      "toc": 17,
+      "ai": 12,
+      "rmipr": 20,
+      "evs": 13
+    }
+  },
+  {
+    "name": "PRABHAT KUMAR CHAURASIA",
+    "usn": "1DB23IS113",
+    "email": "1DB23IS113@isehub.edu",
+    "phone": "9345678921",
+    "password": "1DB23IS113",
+    "attendance": 82,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 14,
+      "toc": 20,
+      "ai": 13,
+      "rmipr": 17,
+      "evs": 16
+    }
+  },
+  {
+    "name": "PRANAV S",
+    "usn": "1DB23IS066",
+    "email": "1DB23IS066@isehub.edu",
+    "phone": "9123456708",
+    "password": "1DB23IS066",
+    "attendance": 69,
+    "internal_marks": {
+      "sepm": 13,
+      "cn": 11,
+      "toc": 18,
+      "ai": 17,
+      "rmipr": 15,
+      "evs": 10
+    }
+  },
+  {
+    "name": "PRASHANT PATEL",
+    "usn": "1DB23IS117",
+    "email": "1DB23IS117@isehub.edu",
+    "phone": "9786501234",
+    "password": "1DB23IS117",
+    "attendance": 94,
+    "internal_marks": {
+      "sepm": 17,
+      "cn": 16,
+      "toc": 12,
+      "ai": 20,
+      "rmipr": 15,
+      "evs": 18
+    }
+  },
+  {
+    "name": "PUNITH M",
+    "usn": "1DB23IS122",
+    "email": "1DB23IS122@isehub.edu",
+    "phone": "9645123780",
+    "password": "1DB23IS122",
+    "attendance": 86,
+    "internal_marks": {
+      "sepm": 12,
+      "cn": 19,
+      "toc": 18,
+      "ai": 13,
+      "rmipr": 17,
+      "evs": 15
+    }
+  },
+  {
+    "name": "SAIMOHAAN SM",
+    "usn": "1DB23IS135",
+    "email": "1DB23IS135@isehub.edu",
+    "phone": "9875614302",
+    "password": "1DB23IS135",
+    "attendance": 95,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 12,
+      "toc": 17,
+      "ai": 19,
+      "rmipr": 11,
+      "evs": 14
+    }
+  },
+  {
+    "name": "SAMBRAM S",
+    "usn": "1DB23IS136",
+    "email": "1DB23IS136@isehub.edu",
+    "phone": "9123465780",
+    "password": "1DB23IS136",
+    "attendance": 77,
+    "internal_marks": {
+      "sepm": 10,
+      "cn": 13,
+      "toc": 19,
+      "ai": 15,
+      "rmipr": 14,
+      "evs": 12
+    }
+  },
+  {
+    "name": "SHREYAS G C",
+    "usn": "1DB23IS137",
+    "email": "1DB23IS137@isehub.edu",
+    "phone": "9456732180",
+    "password": "1DB23IS137",
+    "attendance": 78,
+    "internal_marks": {
+      "sepm": 19,
+      "cn": 17,
+      "toc": 14,
+      "ai": 13,
+      "rmipr": 16,
+      "evs": 11
+    }
+  },
+  {
+    "name": "TANISH N NAIK",
+    "usn": "1DB23IS161",
+    "email": "1DB23IS161@isehub.edu",
+    "phone": "9087654321",
+    "password": "1DB23IS161",
+    "attendance": 85,
+    "internal_marks": {
+      "sepm": 16,
+      "cn": 18,
+      "toc": 13,
+      "ai": 19,
+      "rmipr": 14,
+      "evs": 17
+    }
+  },
+  {
+    "name": "TARUN S",
+    "usn": "1DB23IS162",
+    "email": "1DB23IS162@isehub.edu",
+    "phone": "9345671280",
+    "password": "1DB23IS162",
+    "attendance": 72,
+    "internal_marks": {
+      "sepm": 12,
+      "cn": 19,
+      "toc": 11,
+      "ai": 20,
+      "rmipr": 15,
+      "evs": 14
+    }
+  },
+  {
+    "name": "TEJAS V NAYAK",
+    "usn": "1DB23IS165",
+    "email": "1DB23IS165@isehub.edu",
+    "phone": "9865432109",
+    "password": "1DB23IS165",
+    "attendance": 93,
+    "internal_marks": {
+      "sepm": 18,
+      "cn": 12,
+      "toc": 20,
+      "ai": 16,
+      "rmipr": 15,
+      "evs": 11
+    }
+  }
+]

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    :root{
+        --card: rgba(255,255,255,0.8);
+        --muted:#6b6c86;
+        --accent:#b19cd9;
+        --shadow:0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .profile-card{
+        background: var(--card);
+        padding:25px;
+        border-radius:20px;
+        box-shadow:var(--shadow);
+        backdrop-filter:blur(8px);
+        display:flex;
+        gap:25px;
+        align-items:center;
+        margin-bottom:25px;
+    }
+
+    .profile-img{
+        width:110px;
+        height:110px;
+        border-radius:50%;
+        background:#d9c7ff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        overflow:hidden;
+        font-size:42px;
+        font-weight:700;
+        color:white;
+    }
+
+    .info-card{
+        background: var(--card);
+        padding:18px;
+        border-radius:16px;
+        margin-bottom:18px;
+        box-shadow:var(--shadow);
+    }
+
+    .info-title{
+        font-weight:700;
+        font-size:18px;
+        color:var(--muted);
+        margin-bottom:10px;
+    }
+
+    .info-text{
+        font-size:15px;
+        color:#555;
+        margin:3px 0;
+    }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Profile</h2>
+
+<!-- ▓▓▓ PROFILE HEADER ▓▓▓ -->
+<div class="profile-card">
+    <div class="profile-img">
+        {{ student.name[0] }}
+    </div>
+
+    <div>
+        <h3 style="margin:0; font-weight:800; color:#5c5c8a;">{{ student.name }}</h3>
+        <p style="margin:0; color:#6b6c86;">USN: {{ student.usn }}</p>
+        <p style="margin:0; color:#6b6c86;">Section: {{ section }}</p>
+    </div>
+</div>
+
+<!-- ▓▓▓ BASIC DETAILS ▓▓▓ -->
+<div class="info-card">
+    <div class="info-title">Basic Details</div>
+    <p class="info-text"><strong>Email:</strong> {{ student.email }}</p>
+    <p class="info-text"><strong>Phone:</strong> {{ student.phone }}</p>
+</div>
+
+<!-- ▓▓▓ ATTENDANCE ▓▓▓ -->
+<div class="info-card">
+    <div class="info-title">Attendance</div>
+    <p class="info-text">
+        Overall Attendance: <strong>{{ student.attendance }}%</strong>
+    </p>
+</div>
+
+<!-- ▓▓▓ INTERNAL MARKS ▓▓▓ -->
+<div class="info-card">
+    <div class="info-title">Internal Marks</div>
+
+    {% for sub, mark in student.internal_marks.items() %}
+        <p class="info-text">
+            <strong>{{ sub | upper }}:</strong> {{ mark }} / 20
+        </p>
+    {% endfor %}
+</div>
+
+{% endblock %}

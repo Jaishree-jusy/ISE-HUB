@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+  .table-card { background:rgba(255,255,255,0.95); padding:18px; border-radius:12px; box-shadow:0 10px 28px rgba(0,0,0,0.05);}
+  .action-btn { padding:6px 12px; border-radius:8px; text-decoration:none; font-weight:700; }
+  .att-btn { background:#ffcf66; color:#222; }
+  .marks-btn { background:#6bb9ff; color:#fff; }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Students — Section {{ section }}</h2>
+
+<div class="table-card" style="overflow:auto;">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>USN</th>
+        <th>Email</th>
+        <th>Attendance</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in students %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.usn }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.get('attendance', 0) }}%</td>
+        <td>
+         <a class="action-btn att-btn" href="{{ url_for('admin_attendance_section', section=section) }}">Attendance</a>
+         <a class="action-btn marks-btn" href="{{ url_for('admin_internal_marks', usn=s.usn) }}">Marks</a>
+        </td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6">No students found.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

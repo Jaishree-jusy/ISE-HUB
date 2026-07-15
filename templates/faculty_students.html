@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .table-card {
+        background:rgba(255,255,255,0.85);
+        padding:20px;
+        border-radius:16px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .btn-sm {
+        padding:6px 12px;
+        border-radius:10px;
+        font-weight:700;
+        text-decoration:none;
+        color:white;
+    }
+
+    .att-btn { background:#f3b45c; }
+    .marks-btn { background:#7da8ff; }
+</style>
+
+<h2 style="color:#5c5c8a;font-weight:800;">Students You Handle</h2>
+
+<div class="table-card mt-3">
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>USN</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for s in students %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.usn }}</td>
+            <td>{{ s.section }}</td>
+
+            <td>
+                {% for sub in faculty.subjects %}
+                <a class="btn-sm marks-btn"
+                   href="/faculty/marks/{{ s.usn }}/{{ sub }}">Marks ({{ sub }})</a>
+                <br><br>
+                {% endfor %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

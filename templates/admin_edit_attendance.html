@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="color:#5c5c8a; font-weight:800;">
+    Edit Attendance — {{ student.name }}
+</h2>
+<p>USN: {{ student.usn }} | Section: {{ section }}</p>
+
+<form method="POST" class="card p-4" style="max-width:400px;">
+    <label>Attendance (%)</label>
+    <input name="attendance" type="number" min="0" max="100"
+           class="form-control mb-3"
+           value="{{ student.attendance }}" required>
+
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+
+  /* ======== COLOR PALETTE ======== */
+  :root{
+    --bg:#f5f0ff;
+    --card: rgba(255,255,255,0.75);
+    --purple:#b08cff;
+    --purple-dark:#8a63e6;
+    --muted:#6b6c86;
+    --shadow:0 10px 30px rgba(22,33,84,0.06);
+  }
+
+  body {
+    background: linear-gradient(135deg, #efe6ff, #e5d9ff, #f4e9ff);
+    animation: fadePage 0.6s ease-out;
+  }
+  @keyframes fadePage {
+    from { opacity:0; transform:translateY(10px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ======== WAVE ANIMATION ======== */
+  .wave {
+    display: inline-block;
+    animation: waveAnim 1.8s ease-in-out infinite;
+    transform-origin: 70% 70%;
+  }
+  @keyframes waveAnim {
+    0% { transform: rotate(0deg); }
+    15% { transform: rotate(14deg); }
+    30% { transform: rotate(-8deg); }
+    45% { transform: rotate(14deg); }
+    60% { transform: rotate(-4deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+  }
+
+  /* Fade in text */
+  .fade-in {
+    opacity:0;
+    animation: fadeInText 1s ease forwards;
+  }
+  @keyframes fadeInText {
+    from { opacity:0; transform:translateY(10px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+
+  /* ======== WELCOME BOX ======== */
+  .welcome-box{
+    background:var(--card);
+    padding:20px;
+    border-radius:18px;
+    margin-bottom:25px;
+    backdrop-filter:blur(10px);
+    box-shadow:var(--shadow);
+    animation: floatIn 0.7s ease-out;
+  }
+
+  @keyframes floatIn {
+    from { opacity:0; transform:scale(0.95) translateY(10px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+  }
+
+
+  /* ======== TILES ======== */
+  .dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:22px;
+  }
+
+  .tile{
+    background:var(--card);
+    padding:20px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(8px);
+    transition:0.25s;
+    animation: floatIn 0.7s ease-out;
+  }
+  .tile:hover{
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:0 15px 40px rgba(0,0,0,0.10);
+  }
+
+  .tile img{
+    width:58px;
+    margin-bottom:12px;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+  }
+
+  /* ======== BUTTON ======== */
+  .btn-open{
+    background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+    color:white;
+    padding:8px 18px;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    display:inline-block;
+    box-shadow: 0 6px 18px rgba(141,110,255,0.3);
+    transition:0.2s;
+  }
+  .btn-open:hover{
+    transform:translateY(-4px);
+    opacity:0.95;
+  }
+
+</style>
+
+
+<!-- ======= WELCOME HEADER ======= -->
+
+<div class="welcome-box">
+  <h3 class="fade-in fw-bold" style="font-size:28px;">
+    Welcome back, {{ student.name }} 
+    <span class="wave">👋</span>
+  </h3>
+
+  <p style="margin:2px 0; color:#6b6c86;">USN: {{ student.usn }}</p>
+  <p style="margin:0; color:#6b6c86;">Section: {{ section }}</p>
+</div>
+
+
+<!-- ======= STUDENT DASHBOARD TILES ======= -->
+<div class="dashboard-grid">
+
+  <!-- Assignments -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/task.png">
+    <h4>Assignments</h4>
+    <p>Submit and view assignments</p>
+    <a href="{{ url_for('student_assignments_list') }}" class="btn-open">Open</a>
+  </div>
+
+  <!-- Study Materials -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/books.png">
+    <h4>Study Materials</h4>
+    <p>Notes & subject materials</p>
+    <a href="/study_material" class="btn-open">Open</a>
+  </div>
+
+  <!-- Attendance -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/today.png">
+    <h4>Attendance</h4>
+    <p>View overall percentage</p>
+    <a href="/attendance" class="btn-open">Open</a>
+  </div>
+
+  <!-- Marks -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/certificate.png">
+    <h4>Internal Marks</h4>
+    <p>View your internal scores</p>
+    <a href="/internal_marks" class="btn-open">Open</a>
+  </div>
+
+  <!-- Notifications -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/alarm.png">
+    <h4>Notifications</h4>
+    <p>Important updates from admin</p>
+    <a href="/notifications" class="btn-open">Open</a>
+  </div>
+
+  <!-- Profile -->
+  <div class="tile">
+    <img src="https://img.icons8.com/color/96/user-male-circle.png">
+    <h4>Profile</h4>
+    <p>View personal details</p>
+    <a href="/profile" class="btn-open">Open</a>
+  </div>
+
+    <!-- faculty -->
+<div class="tile">
+  <img src="https://img.icons8.com/color/96/calendar.png" alt="">
+  <h4>faculty</h4>
+  <p>View your subject teachers</p>
+  <a href="/faculty" class="btn-open">Open</a>
+</div>
+
+</div>
+
+
+{% endblock %}

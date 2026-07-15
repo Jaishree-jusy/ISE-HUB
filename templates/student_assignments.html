@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .card-box{
+    background:rgba(255,255,255,0.85);
+    padding:18px;
+    border-radius:14px;
+    margin-bottom:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
+  }
+  .btn-upload{
+    background:#b19cd9;
+    color:white;
+    padding:6px 14px;
+    border-radius:10px;
+    text-decoration:none;
+  }
+</style>
+
+<h2 style="color:#5c5c8a; font-weight:800;">Submit Assignment</h2>
+
+<div class="card-box">
+  <h4>{{ assignment.title }}</h4>
+  <p>{{ assignment.description }}</p>
+  <p><strong>Deadline:</strong> {{ assignment.deadline }}</p>
+
+  <form method="POST" enctype="multipart/form-data">
+    <label>Upload File:</label>
+    <input type="file" name="submission" class="form-control mb-3" required>
+    <button class="btn-upload" type="submit">Submit</button>
+  </form>
+</div>
+
+{% endblock %}
