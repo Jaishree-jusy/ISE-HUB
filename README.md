@@ -136,7 +136,7 @@ This project was developed solely for **academic and learning purposes** as part
 ## Contributors
 
 - **Jaishree K S**
-- **Adithya K** (College Mini Project)
+- **Adithya K** 
 
 ---
 
